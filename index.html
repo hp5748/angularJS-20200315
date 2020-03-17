@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <title>测试</title>
     <script src="libs/angular-1.7.3.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 </head>
-<body ng-app>
-<label>
-    <input type="text" ng-model="first">
-</label>
-<label>
-    <input type="text" ng-model="second">
-</label>
-
-<p>输入：<span>{{first}}+{{second}}</span></p>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <h1 ng-bind="name"></h1>
+    <input type="text" ng-model="name">
+</div>
+<script>
+    //声明模块
+    var a = angular.module('hd', []);
+    //双向数据绑定，control控制器
+    a.controller('ctrl', ['$scope', function ($scope) {
+      //viewModel
+        $scope.name='后盾网s';
+    }]);
+</script>
 </body>
 </html>
