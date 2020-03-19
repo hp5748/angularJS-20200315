@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <p>{{name}}</p>
+    商品名称：{{goods.data.title}}<br>
+    价格：{{goods.data.price}}<br>
+    购买数量：{{goods.data.num}}件<br>
+    总计：{{goods.data.price*goods.data.num}}元<br>
+    总计2：<input type="text" ng-value="goods.data.price*goods.data.num" readonly="readonly">
+    <button ng-click="goods.add()">增加</button>
+    <button ng-click="goods.reduce()">减少</button>
+</div>
+<script>
+    let m=angular.module('hd',[]);
+
+    m.controller('ctrl',['$scope',function ($scope) {
+       // //写变量
+       //  $scope.name='hp';
+       //  $scope.goods={'title':'apple phone','price':300,'num':0};
+       //  //写函数
+       //  $scope.add=function()
+       //  {
+       //     // alert('增加数量!');
+       //      $scope.goods.num=Math.min(++$scope.goods.num,6);
+       //  };
+       //  $scope.reduce=function()
+       //  {
+       //   //   alert('减少数量！');
+       //      $scope.goods.num=Math.max(--$scope.goods.num,0);
+       //  };
+        $scope.goods={
+            data:{'title':'apple phone','price':300,'num':0},
+            add:function()
+            {
+                // alert('增加数量!');
+                $scope.goods.data.num=Math.min(++$scope.goods.data.num,6);
+            },
+            reduce:function()
+            {
+                //   alert('减少数量！');
+                $scope.goods.data.num=Math.max(--$scope.goods.data.num,0);
+            }
+        };
+
+
+    }]);
+</script>
+</body>
+</html>

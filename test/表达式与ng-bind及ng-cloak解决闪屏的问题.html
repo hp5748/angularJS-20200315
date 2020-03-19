@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+</head>
+<style>
+    .ng-cloak {
+        display: none;
+    }
+</style>
+<body ng-app="hd" ng-cloak class="ng-cloak">
+<div ng-controller="ctrl">
+    {{name+'ssdfsfs'}} sdfsafs
+    <hr>
+    {{user.username+'=>'+user.url}}
+    <hr>
+    {{num+8}}
+    <hr>
+    <h3 ng-bind="name"></h3>
+</div>
+<script src="../libs/angular-1.7.3.min.js"></script>
+<script>
+    let m = angular.module('hd', []);
+    m.controller('ctrl', ['$scope', function ($scope) {
+        $scope.name = '后盾网';
+        $scope.num=2;
+        $scope.user={'username':'后盾人','url':'houdunren.com'};
+    }]);
+</script>
+</body>
+</html>
