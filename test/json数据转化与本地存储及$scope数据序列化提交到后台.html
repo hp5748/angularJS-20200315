@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+ {{data.name}}
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.data={'name':'后盾人'};
+        alert(angular.toJson($scope.data));
+        localStorage.setItem('data',angular.toJson($scope.data));//存储到本地
+        //获取的话用 var str=localStorage.getItem('data');//这是个字符串
+        $scope.str= angular.fromJson(angular.toJson($scope.data));
+        console.log($scope.str);
+    }]);
+</script>
+</body>
+</html>

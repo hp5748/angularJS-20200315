@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <ur>
+<!--        {{$first}}第一个      {{$last}}最后一个  {{$middle}}中间的   {{even}}偶数  {{odd}}奇数-->
+        <li ng-repeat="(k,v) in data" style="{{k==0?'color:red':''}}">
+             名称：{{v.name}}  网址：{{v.url}}
+        </li>
+        <p>--------------------------------</p>
+        <li ng-repeat="(k,v) in data" style="{{$even?'color:red':''}}">
+           <span ng-if="$even">名称：{{v.name}}  网址：{{v.url}}</span>
+        </li>
+        <p>--------------------------------</p>
+        <li ng-repeat="(k,v) in data" style="{{$odd?'color:red':''}}">
+            <span ng-if="$odd">名称：{{v.name}}  网址：{{v.url}}</span>
+        </li>
+        <p>--------------------------------</p>
+        <li ng-repeat="(k,v) in data">
+            <span ng-if="$first" style="{{$first?'color:red':''}}">名称：{{v.name}}  网址：{{v.url}}</span>
+            <span ng-if="$middle" style="{{$middle?'color:blue':''}}">名称：{{v.name}}  网址：{{v.url}}</span>
+            <span ng-if="$last" style="{{$last?'color:green':''}}">名称：{{v.name}}  网址：{{v.url}}</span>
+        </li>
+        <p>--------------------------------</p>
+        <li ng-repeat="v in data2">
+          {{v}}
+        </li>
+        <p>--------------------------------</p>
+        <li ng-repeat="v in data3">
+            {{v}}
+        </li>
+        <p>--------------------------------</p>
+<!--       track by $index  可以让它以index为唯一值循环，因为angularJS中ng-repeat不能循环重复值-->
+        <li ng-repeat="v in data4 track by $index">
+            {{v}}
+        </li>
+    </ur>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        //循环输出多个标题：ng-repeat
+        $scope.data=[
+            {name:'后盾人',url:'houdunren.com'},
+            {name:'后盾网',url:'houdunwang.com'},
+            {name:'后盾云',url:'houdunyun.com'},
+            {name:'后盾肾',url:'houdunshen.com'},
+            {name:'后盾脑',url:'houdunnao.com'},
+        ];
+        $scope.data2={'name':'衢州','address':'quzhou'};
+        $scope.data3=['a','b','c','d'];
+        $scope.data4=['a','b','c','c'];
+    }]);
+</script>
+</body>
+</html>

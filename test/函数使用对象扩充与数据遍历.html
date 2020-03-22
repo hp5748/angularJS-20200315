@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+{{data}}
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+       // var obj={name:'后盾网'};
+       // angular.extend(obj,{url:'www.houdunwang.com',web:'后盾网'});//对象扩充
+       //  console.log(obj);
+        $scope.data=[
+            {name:'后盾网',url:'houdunwang.com'},
+            {name:'taobaowang',url:'taobao.com'},
+        ];
+        angular.forEach($scope.data,function (v,k) {//forEach的使用
+            // console.log(v);
+            // console.log(k);
+            v.url='www.'+v.url;
+        })
+    }]);
+</script>
+</body>
+</html>

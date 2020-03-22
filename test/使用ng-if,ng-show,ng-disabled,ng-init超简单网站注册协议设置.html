@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <input type="checkbox" ng-model="name">
+    {{name}}
+    <div ng-show="name">显示了</div>
+
+    <div ng-if="name">显示了</div>
+</div>
+<div ng-controller="ctrl">
+    <label><input type="checkbox" ng-model="status"></label><br>
+    {{status}}
+    <button ng-init="copyright=false" ng-click="copyright=!copyright">查看协议</button>
+    <br>
+    <textarea ng-if="copyright">协议内容：本视频由后盾人推出</textarea>
+    <br>
+    <button ng-disabled="!status">登录</button>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+            //ng-show 是显示和隐藏
+        //ng-if 是移除或添加
+
+    }]);
+</script>
+</body>
+</html>

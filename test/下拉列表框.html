@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <select name="slt" ng-options="v.value as v.name for v in data" ng-model="city">
+    <option value="">请选择城市</option>
+    </select>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+       $scope.city='quzhou';
+        $scope.data=[
+            {name:'衢州',value:'quzhou'} ,
+            {name:'北京',value:'beijing'},
+            {name:'南京',value:'beiji.g'},
+            {name:'杭州',value:'hangzhou'},
+            {name:'宁波',value:'hangzhou'}
+        ];
+    }]);
+</script>
+</body>
+</html>
