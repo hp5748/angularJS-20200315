@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <div ng-click="show()">单击事件</div><br>
+    <div ng-dblclick="show()">双击事件</div><br>
+<!--    使用ng-change需要ng-model指令-->
+    <input type="text" ng-change="change()" ng-model="title"><br>
+    ----------------------------------------------------------<br>
+<!--    ng-blur失去焦点事件-->
+    <input type="text" ng-blur="show()" ng-model="made"><br>
+    ----------------------------------------------------------<br>
+    <!--    ng-focus获取焦点事件-->
+    <input type="text" ng-focus="show()" ng-model="state"><br>
+    ----------------------------------------------------------<br>
+    <!--    ng-keydown获取焦点事件-->
+    <input type="text" ng-keydown="show()" ng-model="state"><br>
+    ----------------------------------------------------------<br>
+    <!--    ng-focu获取焦点事件-->
+    <input type="text" ng-mousemove="show()" ng-model="state"><br>
+    ----------------------------------------------------------<br>
+    {{name}}
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.name='';
+        $scope.show=function () {
+            $scope.name+='hp';
+        }
+        $scope.change=function () {
+            alert('我改变了！');
+        }
+    }]);
+</script>
+</body>
+</html>

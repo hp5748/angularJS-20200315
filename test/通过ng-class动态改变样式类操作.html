@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    .red{
+        background: red;
+        }
+    .font{
+        font-size: 100px;
+    }
+    .lock{
+        background: bisque;
+    }
+    .yanse{
+        color: yellow;
+    }
+</style>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <div ng-class="{red:true,font:true}">{{name}}</div>
+    <table border="1" width="600">
+        <tr>
+            <td>编码</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr ng-repeat="v in data" ng-class="{lock:v.status==0}">
+            <td>{{v.id}}</td>
+            <td>{{v.username}}</td>
+            <td ng-class="{yanse:v.age>30}">{{v.age}}</td>
+        </tr>
+    </table>
+    <table border="1" width="600">
+        <tr>
+            <td>编码</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr ng-repeat="v in data" ng-class-even="{red:true}">
+            <td>{{v.id}}</td>
+            <td>{{v.username}}</td>
+            <td ng-class="{yanse:v.age>30}">{{v.age}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.name='hp';
+        $scope.data=[
+            {id:1,username:'小明','age':22,status:1},
+            {id:2,username:'李四','age':45,status:0},
+            {id:3,username:'张三','age':12,status:1},
+            {id:4,username:'张崟','age':42,status:1},
+        ];
+    }]);
+</script>
+</body>
+</html>

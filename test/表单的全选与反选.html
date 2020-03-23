@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+<!--    <input type="checkbox" ng-checked="false">-->
+    <table border="1" width="500">
+        <tr>
+            <td><input type="checkbox" ng-model="all">
+<!--ng-bind 指令告诉 AngularJS 使用给定的变量或表达式的值来替换 HTML 元素的内容。给定的变量或表达式修改了，指定替换的 HTML 元素也会修改-->
+               <span ng-bind="all?'取消':'全选'"></span></td>
+            <td>标题</td>
+            <td>网址</td>
+        </tr>
+        <tr ng-repeat="v in user">
+            <td>
+                <input type="checkbox" ng-checked="all">
+            </td>
+            <td>
+                {{v.name}}
+            </td>
+            <td>
+                {{v.url}}
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        // $scope.name='hp';
+        $scope.user=[
+            {name:'后盾人','url':'houdunwang.com'},
+            {name:'向军','url':'xiangjun.com'},
+            {name:'何平','url':'heping.com'},
+            {name:'汪慧青','url':'wanghuiqing.com'},
+        ];
+    }]);
+</script>
+</body>
+</html>

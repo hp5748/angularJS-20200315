@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    性别：<select ng-model="user.sex">
+        <option ng-value="1" ng-selected="user.sex==1">男</option>
+        <option ng-value="2" ng-selected="user.sex==2">女</option>
+    </select>
+        <input type="radio" ng-model="user.sex" ng-value="1">男
+        <input type="radio" ng-model="user.sex" ng-value="2">女
+    <p>........................</p>
+    协议：<input type="checkbox" ng-model="copyright">接受<br>
+    <input type="submit" ng-disabled="!copyright">
+    <p>........................</p>
+<!--    <form action="1.php" method="post">-->
+<!--        <input type="text" name="a" readonly="readonly" value="3"><br>-->
+<!--        <input type="text" name="b" disabled="disabled" value="disabled"><br>-->
+<!--        <input type="submit">-->
+<!--    </form>-->
+    年龄：<input type="text" ng-model="user.age"><br>
+    邮箱：<input type="text" ng-model="user.mail" ng-readonly="user.uid">
+    
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        //$scope.user={sex:2};
+        $scope.user={age:33,uid:0,mail:'574827812@qq.com'}
+    }]);
+</script>
+</body>
+</html>
