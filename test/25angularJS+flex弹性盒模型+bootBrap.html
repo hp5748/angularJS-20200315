@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="hd">
+<style>
+    .mobile{
+        border: solid 1px;
+        height: 500px;
+        display: flex;
+    }
+    .mobile dl {
+        margin :0px;
+        padding: 0px;
+        display: flex;
+        flex: 1;
+        flex-direction: column-reverse;
+    }
+    .mobile dl dt {
+        /*border: solid 1px #999;*/
+        background: #999;
+        color: red;
+        height: 30px;
+        text-align: center;
+    }
+    .mobile dl dd {
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile dl dd a{
+        border: solid 1px #f3f3f3;
+        text-align: center;
+        padding: 6px;
+    }
+</style>
+<div ng-controller="ctrl">
+   <div class="container">
+       <div class="row">
+           <div class="col-xl-4" class="app">
+               <div class="mobile">
+                   <dl>
+                       <dt>游戏</dt>
+                       <dd>
+                           <a href="">红警</a>
+                           <a href="">全名突击</a>
+                       </dd>
+                   </dl>
+                   <dl>
+                       <dt>电影</dt>
+                       <dd>
+                           <a href="">小飞侠</a>
+                           <a href="">爱情公寓</a>
+                       </dd>
+                   </dl>
+               </div>
+           </div>
+           <div class="col-xl-8">
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h3 class="panel-title">编辑</h3>
+                   </div>
+                   <div class="panel-body">
+                       php hp
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.name='hp';
+    }]);
+</script>
+</body>
+</html>
