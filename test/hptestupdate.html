@@ -8,11 +8,11 @@
 </head>
 <body ng-app="hd">
 <div ng-controller="ctrl">
-    <input type="text" ng-model="name">
     <p>名字：{{name}}</p>
 </div>
 <script>
     var m=angular.module('hd',[]);
+    <input type="text" ng-model="name">
     m.controller('ctrl',['$scope',function ($scope) {
         $scope.name='hp';
     }]);
