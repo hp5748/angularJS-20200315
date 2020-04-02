@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+<!--    <input type="text" ng-model="name">-->
+<!--    <p>名字：{{name|limitTo:2:5}}</p>-->
+<!--    <p>时间：{{time|date:'yyyy年MM月dd日 HH时mm分ss秒'}}</p>-->
+<!--    <p>排序：{{data|orderBy:'title':true}}</p>-->
+    {{time}}
+    <button ng-click="odb()">控制器中使用过滤器</button>
+</div>
+<script>
+    let m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope','$filter',function ($scope,$filter) {
+        $scope.name='后盾人我是HP，是个技术大咖';
+        $scope.time=new Date().getTime();
+        $scope.data=[
+            {id:4,click:100,title:'杭州人'},
+            {id:2,click:200,title:'衢州人'},
+            {id:3,click:300,title:'宁波人'},
+        ];
+        $scope.odb=function () {
+            $scope.time=$filter('date')($scope.time,'yyyy年MM月dd日 HH时mm分ss秒');
+        }
+    }]);
+</script>
+</body>
+</html>
