@@ -21,26 +21,28 @@
            }
            if(arguments.callee[opt]==false)
            {
-               alert('我错了！');
+               alert('no！'); //alert('我错了！');
+               arguments.callee[opt]=!arguments.callee[opt];
                return false;
            }
            else
            {
-               alert('我对的！');
-             return true;
+               alert('ok！'); // alert('我对的！');
+               arguments.callee[opt]=!arguments.callee[opt];
+               return true;
            }
-            arguments.callee[opt]=!arguments.callee[opt];
+
         };
 
         $scope.judge=function (opt) {
-            alert($scope.setValue(opt));
-           //  if($scope.setValue(opt))
-           //  {
-           //      alert('我错了！');
-           //  }else
-           //  {
-           //      alert('我对的');
-           //  }
+           // alert($scope.setValue(opt));
+            if(!$scope.setValue(opt))
+            {
+                alert('我错了！');
+            }else
+            {
+                alert('我对的');
+            }
         }
 
 
