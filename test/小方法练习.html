@@ -12,8 +12,8 @@
 <!--    <p>名字：{{name|limitTo:2:5}}</p>-->
 <!--    <p>时间：{{time|date:'yyyy年MM月dd日 HH时mm分ss秒'}}</p>-->
 <!--    <p>排序：{{data|orderBy:'title':true}}</p>-->
-    {{time}}
-    <button ng-click="odb()">控制器中使用过滤器</button>
+    {{data}}
+    <button ng-click="odb2()">控制器中使用过滤器</button>
 </div>
 <script>
     let m=angular.module('hd',[]);
@@ -27,7 +27,10 @@
         ];
         $scope.odb=function () {
             $scope.time=$filter('date')($scope.time,'yyyy年MM月dd日 HH时mm分ss秒');
-        }
+        };
+        $scope.odb2=function () {
+            $scope.data=$filter('orderBy')($scope.data,'id',true);//过滤器用于orderBy
+        };
     }]);
 </script>
 </body>

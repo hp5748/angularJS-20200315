@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/angular-1.7.3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body ng-app="hd">
+<div ng-controller="ctrl">
+    <button ng-click="setValue('opt')">按钮1</button>
+    <br>
+     <button ng-click="judge('opt')">按钮2</button>
+</div>
+<script>
+    var m=angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+            $scope.setValue=function (opt) {
+           if(arguments.callee[opt]==undefined){
+               arguments.callee[opt]=false;
+           }
+           if(arguments.callee[opt]==false)
+           {
+               alert('我错了！');
+               return false;
+           }
+           else
+           {
+               alert('我对的！');
+             return true;
+           }
+            arguments.callee[opt]=!arguments.callee[opt];
+        };
+
+        $scope.judge=function (opt) {
+            alert($scope.setValue(opt));
+           //  if($scope.setValue(opt))
+           //  {
+           //      alert('我错了！');
+           //  }else
+           //  {
+           //      alert('我对的');
+           //  }
+        }
+
+
+    }]);
+</script>
+</body>
+</html>
